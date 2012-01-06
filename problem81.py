@@ -1,4 +1,4 @@
-from numpy import array, zeros
+from numpy import array
 
 m = array([l.split(',') for l in open('matrix.txt', 'r').readlines()],
           dtype=int)
