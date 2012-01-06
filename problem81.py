@@ -6,9 +6,6 @@ m = array([l.split(',') for l in open('matrix.txt', 'r').readlines()],
 def add(x, y):
     global m
 
-    h, w = m.shape
-    if x == w or y == h: return
-
     p = []
     if x: p.append(m[y, x - 1])
     if y: p.append(m[y - 1, x])
