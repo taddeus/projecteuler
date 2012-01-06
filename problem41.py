@@ -1,14 +1,13 @@
-from math import sqrt, ceil
 from itertools import permutations
 
 def is_prime(n):
     if n == 2:
         return True
 
-    if not n % 2:
+    if n < 2 or not n & 1:
         return False
 
-    for i in xrange(3, int(ceil(sqrt(n))) + 1 + 1, 2):
+    for i in xrange(3, int(n ** .5) + 1, 2):
         if not divmod(n, i)[1]:
             return False
 
