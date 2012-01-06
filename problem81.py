@@ -1,6 +1,7 @@
 from numpy import array, zeros
 
-m = array([map(int, l.split(',')) for l in open('matrix.txt', 'r').readlines()])
+m = array([l.split(',') for l in open('matrix.txt', 'r').readlines()],
+          dtype=int)
 
 def add(x, y):
     global m
