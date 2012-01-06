@@ -1,5 +1,3 @@
-from itertools import permutations
-
 def is_prime(n):
     if n == 2:
         return True
@@ -13,13 +11,16 @@ def is_prime(n):
 
     return True
 
-m = 0
+if __name__ == '__main__':
+    from itertools import permutations
 
-for i in xrange(2, 10):
-    for digits in permutations(map(str, range(i, 0, -1))):
-        n = int(''.join(digits))
+    m = 0
 
-        if n > m and is_prime(n):
-            m = n
+    for i in xrange(2, 10):
+        for digits in permutations(map(str, range(i, 0, -1))):
+            n = int(''.join(digits))
 
-print m
+            if n > m and is_prime(n):
+                m = n
+
+    print m
