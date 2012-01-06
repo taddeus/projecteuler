@@ -22,4 +22,5 @@ for i in xrange(2, 10):
 
         if n > m and is_prime(n):
             m = n
-            print m
+
+print m
