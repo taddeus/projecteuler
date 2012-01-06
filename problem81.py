@@ -2,6 +2,7 @@ from numpy import array
 
 m = array([l.split(',') for l in open('matrix.txt', 'r').readlines()],
           dtype=int)
+h, w = m.shape
 
 def add(x, y):
     global m
@@ -11,11 +12,10 @@ def add(x, y):
     if y: p.append(m[y - 1, x])
     m[y, x] += min(p)
 
-h, w = m.shape
-
 for i in range(w+h):
     for x in range(i + 1):
         y = i - x
+
         if (x or y) and x < w and y < h:
             add(x, y)
 
