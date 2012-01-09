@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 def is_prime(n):
     if n == 2:
         return True

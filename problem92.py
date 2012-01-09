@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 def digits(n):
     return [n] if n < 10 else digits(n / 10) + [n % 10]
 

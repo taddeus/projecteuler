@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 words = open('words.txt', 'r').read()[1:-1].split('","')
 
 def word_value(word):

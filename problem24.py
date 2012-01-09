@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from itertools import permutations
 
 for i, p in enumerate(permutations(range(10))):

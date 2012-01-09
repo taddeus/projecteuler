@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 def is_resilient(n, d):
     if n == 1:
         return True

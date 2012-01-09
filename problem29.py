@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 def combos(A, B):
     c = set()
 

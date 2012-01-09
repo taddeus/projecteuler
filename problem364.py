@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from copy import copy
 from sys import argv, exit, setrecursionlimit
 

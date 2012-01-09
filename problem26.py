@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from decimal import Decimal as D
 import re
 
