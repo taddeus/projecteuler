@@ -1,29 +1,53 @@
 #!/usr/bin/env python
-def is_resilient(n, d):
-    if n == 1:
-        return True
+from __future__ import division
+from math import sqrt, ceil
 
-    for div in xrange(2, min(n, d) + 1):
-        if not n % div and not d % div:
-            return False
+def primes_until(n):
+    """ Sieve of Eratosthenes """
+    lst = [False] * n
+    i = 2
 
-    return True
+    while i < n:
+        if not lst[i]:
+            yield i
+
+            for j in xrange(i, n, i):
+                lst[j] = True
+
+        i += 1
+
+def times(a, b):
+    return a * b
+
+def div(m, n):
+    return not divmod(n, m)[1]
+
+MAX = 2000000
+all_primes = list(primes_until(MAX))
+
+def primes(n):
+    for p in all_primes:
+        if p >= n:
+            raise StopIteration
+
+        yield p
+
+def phi(n):
+    return reduce(times, iter(1 - 1 / p for p in primes(n) if div(p, n)), n)
 
 def resilience(d):
-    r = 0
+    return phi(d) / (d - 1)
 
-    for n in xrange(1, d):
-        if is_resilient(n, d):
-            r += 1
-
-    return r / (d - 1.)
-
-smallest = 15499. / 94744
 d = 2
 
-while True:
-    if resilience(d) < smallest:
-        print d
-        break
+try:
+    while resilience(d) >= 15499 / 94744:
+        d += 1
 
-    d += 1
+        if d == MAX:
+            print 'maximum reached:',
+            break
+except KeyboardInterrupt:
+    print 'interrupted:',
+
+print d
