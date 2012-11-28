@@ -1,8 +1,27 @@
 #!/usr/bin/env python
-for i in range(2, 11):
-    r = str(round(1. / i, 1000))[2:-1]
+from decimal import getcontext, Decimal
 
-    for l in range(len(r) / 2, 0, -1):
-        pass
+def findrec(d):
+    getcontext().prec = d * 3
+    dec = str(Decimal(1) / d)[2:]
 
-    print i, r
+    for l in xrange(d - 1, 0, -1):
+        for offset in xrange(d):
+            pivot = len(dec) - offset - l
+            left = dec[pivot - l:pivot]
+            right = dec[pivot:pivot + l]
+
+            if left == right:
+                if len(left) == 1 or len(set(left)) > 2:
+                    return dec[pivot - l:pivot]
+
+if __name__ == '__main__':
+    longest = 0
+    ld = None
+
+    for d in xrange(2, 1000):
+        rec = findrec(d)
+
+        if rec and len(rec) > longest:
+            longest, ld = len(rec), d
+            print '%d (%d)' % (d, longest), rec
