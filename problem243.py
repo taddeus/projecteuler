@@ -1,53 +1,38 @@
 #!/usr/bin/env python
 from __future__ import division
-from math import sqrt, ceil
+from primes import is_prime, nprimes
 
-def primes_until(n):
-    """ Sieve of Eratosthenes """
-    lst = [False] * n
-    i = 2
-
-    while i < n:
-        if not lst[i]:
-            yield i
-
-            for j in xrange(i, n, i):
-                lst[j] = True
-
-        i += 1
+print list(nprimes(15499))
+import sys; sys.exit()
 
 def times(a, b):
     return a * b
 
-def div(m, n):
-    return not divmod(n, m)[1]
-
-MAX = 2000000
-all_primes = list(primes_until(MAX))
+known_primes = {}
 
 def primes(n):
-    for p in all_primes:
-        if p >= n:
-            raise StopIteration
-
-        yield p
+    for p in range(2, n):
+        if p in known_primes:
+            yield p
+        elif is_prime(p):
+            known_primes[p] = None
+            yield p
 
 def phi(n):
-    return reduce(times, iter(1 - 1 / p for p in primes(n) if div(p, n)), n)
+    return reduce(times, iter(1 - 1 / p for p in primes(n) if not n % p), n)
 
 def resilience(d):
     return phi(d) / (d - 1)
 
-d = 2
+d = 30
 
-try:
-    while resilience(d) >= 15499 / 94744:
-        d += 1
+while True:
+    print d,
 
-        if d == MAX:
-            print 'maximum reached:',
-            break
-except KeyboardInterrupt:
-    print 'interrupted:',
+    res = resilience(d)
 
-print d
+    if res < 15499 / 94744:
+        break
+
+    print res, 15499 / 94744
+    d += 30
