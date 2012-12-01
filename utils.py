@@ -1,3 +1,6 @@
+def digits(n):
+    return [n] if n < 10 else digits(n / 10) + [n % 10]
+
 def _gcd(a, b):
     while b:
         a, b = b, a % b
