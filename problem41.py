@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-from utils import is_prime
-
 from itertools import permutations
+from utils import is_prime
 
 m = 0
 
