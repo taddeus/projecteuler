@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from itertools import combinations
 from math import factorial
 
 def digits(n):
