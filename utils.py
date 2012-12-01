@@ -35,7 +35,7 @@ def primes_until(n):
         if not lst[i]:
             yield i
 
-            for j in xrange(i, n, i):
+            for j in xrange(i + i, n, i):
                 lst[j] = True
 
         i += 1
