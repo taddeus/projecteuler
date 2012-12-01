@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from __future__ import division
 from itertools import combinations, permutations
-from frac import gcd
+from utils import gcd
 
 nrs = [(i, str(i)) for i in xrange(10, 100)]
 pairs = ((0, 0), (0, 1), (1, 0), (1, 1))

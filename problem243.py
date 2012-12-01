@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from __future__ import division
-from primes import is_prime, nprimes
+from utils import is_prime, nprimes
 
 print list(nprimes(15499))
 import sys; sys.exit()
