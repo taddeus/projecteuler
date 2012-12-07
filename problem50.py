@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from math import sqrt
 from utils import primes_until
 
 def maxprime(n):

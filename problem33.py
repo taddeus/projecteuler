@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from __future__ import division
-from itertools import combinations, permutations
+from itertools import combinations
 from utils import gcd
 
 nrs = [(i, str(i)) for i in xrange(10, 100)]

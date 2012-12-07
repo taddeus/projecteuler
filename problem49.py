@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from itertools import permutations, combinations
-from utils import primes_until, digits, add
+from utils import primes_until, add
 from sys import exit
 
 def concat(digits):
