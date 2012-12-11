@@ -14,7 +14,7 @@ def maxprime(n):
             s = sum(conseq)
 
             if s >= 1000000:
-                return maxp
+                break
 
             if s in primes[start + maxlen:]:
                 maxlen = end - start
