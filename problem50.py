@@ -7,15 +7,18 @@ def maxprime(n):
 
     for start in xrange(len(primes)):
         for end in xrange(start + maxlen + 1, start + 800):
-            if end - start >= maxlen:
-                conseq = primes[start:end]
-                s = sum(conseq)
+            if end - start < maxlen:
+                break
 
-                if len(conseq) > 1 and s in primes[start:]:
-                    maxlen = end - start
-                    maxp = s
-                    print maxp
-                    #print '%s = %d' % (' + '.join(map(str, primes[start:end])), s)
+            conseq = primes[start:end]
+            s = sum(conseq)
+
+            if s >= 1000000:
+                return maxp
+
+            if s in primes[start + maxlen:]:
+                maxlen = end - start
+                maxp = s
 
     return maxp
 
