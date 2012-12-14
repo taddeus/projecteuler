@@ -3,9 +3,9 @@ def tri(n): return n * (n + 1) / 2
 def pent(n): return n * (3 * n - 1) / 2
 def hexa(n): return n * (2 * n - 1)
 funcs = (tri, pent, hexa)
-
-n = [20] * 3
-vals = [f(20) for f in funcs]
+init = 20
+n = [init] * len(funcs)
+vals = [f(init) for f in funcs]
 
 while len(set(vals)) > 1 or vals[0] == 40755:
     mini = 0
