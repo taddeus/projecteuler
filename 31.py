@@ -10,4 +10,4 @@ def pos(amt, coins):
 
     return p
 
-print pos(200, [1, 2, 5, 10, 20, 50, 100, 200])
+print pos(200, [200, 100, 50, 20, 10, 5, 2, 1])
