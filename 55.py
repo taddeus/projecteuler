@@ -2,13 +2,10 @@
 
 def rev(n):
     r = 0
-    base = 1
 
     while n > 0:
-        div, rem = divmod(n, 10)
-        r = r * 10 + rem
-        base *= 10
-        n = div
+        r = r * 10 + n % 10
+        n /= 10
 
     return r
 
