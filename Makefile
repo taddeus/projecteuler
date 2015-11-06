@@ -1,4 +1,6 @@
-.PHONY: clean
+.PHONY: all clean
+
+all:
 
 clean:
-	find -name \*.pyc -delete
+	rm *.pyc
