@@ -2,30 +2,30 @@
 # https://en.wikipedia.org/wiki/Continued_fraction#Some_useful_theorems
 
 def nom(n):
-    nexth = hp = hpp = 1
+    h = hp = hpp = 1
 
     while n > 0:
-        nexth = 2 * hp + hpp
+        h = 2 * hp + hpp
         hpp = hp
-        hp = nexth
+        hp = h
         n -= 1
 
-    return nexth
+    return h
 
 def denom(n):
     kpp = 0
-    nextk = kp = 1
+    k = kp = 1
 
     while n > 0:
-        nextk = 2 * kp + kpp
+        k = 2 * kp + kpp
         kpp = kp
-        kp = nextk
+        kp = k
         n -= 1
 
-    return nextk
+    return k
 
 def ndig(n, base=10):
-    i = 0
+    i = 1 if n == 0 else 0
 
     while n > 0:
         i += 1
